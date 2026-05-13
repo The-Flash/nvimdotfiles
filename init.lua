@@ -18,19 +18,6 @@ require("vim-options")
 require("keymaps")
 require("lazy").setup("plugins")
 
--- Null LS
-local null_ls = require("null-ls")
-null_ls.setup({
-    dependencies = {
-        "nvimtools/none-ls-extras.nvim"
-    },
-    sources = {
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.prettier,
-    },
-})
-vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
-
 -- Diagnostics
 vim.diagnostic.config({
   virtual_text = {

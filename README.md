@@ -21,7 +21,7 @@ nvim
 
 ## Structure
 
-```
+````
 ~/.config/nvim/
 ├── init.lua                  # Entry point, loads lazy.nvim and all modules
 ├── lazy-lock.json            # Plugin version lockfile
@@ -39,8 +39,7 @@ nvim
         ├── telescope.lua     # Fuzzy finder + git-worktree extension
         ├── toggleterm.lua    # Floating terminal
         ├── treesitter.lua    # Syntax highlighting
-        └── comment.lua       # Comment toggling
-```
+        └── comment.lua       # Comment toggling        └── conform.lua       # Auto-formatting```
 
 ## Plugins
 
@@ -52,7 +51,7 @@ nvim
 | [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) + [LuaSnip](https://github.com/L3MON4D3/LuaSnip)                             | Autocompletion + snippets                    |
 | [mason.nvim](https://github.com/mason-org/mason.nvim) + [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim) | LSP/linter installer and manager             |
 | [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)                                                                   | LSP client configuration                     |
-| [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim)                                                                    | Formatting and diagnostics via non-LSP tools |
+| [conform.nvim](https://github.com/stevearc/conform.nvim)                                                                     | Auto-formatting on save (Prettier, stylua, ruff, rustfmt) |
 | [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)                                                              | File explorer sidebar/float                  |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)                                                                 | Status line                                  |
 | [copilot.vim](https://github.com/github/copilot.vim)                                                                         | GitHub Copilot inline suggestions            |
@@ -104,6 +103,14 @@ The following language servers are auto-installed via Mason:
 | ----------- | ---------------------------- |
 | `<leader>m` | Toggle file explorer (float) |
 
+### Formatting
+
+| Key          | Action                          |
+| ------------ | ------------------------------- |
+| `<leader>f`  | Format buffer (async, on-demand) |
+
+> Files also auto-format on save for supported filetypes.
+
 ### Splits
 
 | Key           | Action                  |
@@ -142,3 +149,4 @@ Neovim 0.12 removed several APIs that some plugins depend on. The following shim
 
 - **`nvim-treesitter.parsers`** — replaced by `vim.treesitter.get_parser` and `vim.treesitter.language.get_lang`. A fake module is registered via `package.preload` so Telescope's previewer doesn't crash.
 - **`nvim-treesitter.configs`** — replaced by `require("nvim-treesitter").setup()`. A fake module is registered so Telescope's `is_enabled` and `get_module` calls are safe.
+````

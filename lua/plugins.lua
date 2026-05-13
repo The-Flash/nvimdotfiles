@@ -6,15 +6,9 @@ return {
 		"nvim-telescope/telescope-ui-select.nvim",
 	},
 	{
-		"nvimtools/none-ls.nvim",
-	},
-	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
-	},
-	{
-		"nvimtools/none-ls-extras.nvim",
 	},
     {
         's1n7ax/nvim-window-picker',
