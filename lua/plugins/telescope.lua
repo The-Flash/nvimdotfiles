@@ -20,7 +20,10 @@ return {
         }
         local telescope = require("telescope")
         telescope.setup(opts)
+        local gitworktree = require("git-worktree")
+        gitworktree.setup()
         telescope.load_extension("ui-select")
+        telescope.load_extension("git_worktree")
 
         local builtin = require("telescope.builtin")
 

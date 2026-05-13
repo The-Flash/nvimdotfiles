@@ -35,4 +35,10 @@ return {
           -- See Configuration section for options
         },
       },
+  {
+    "ThePrimeagen/git-worktree.nvim"
+  },
+  {
+    "markvincze/panda-vim"
+  }
 }

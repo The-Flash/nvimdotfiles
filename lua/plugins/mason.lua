@@ -22,6 +22,30 @@ return {
 						capabilities = capabilities,
 					})
 				end,
+                handlers = {
+                    ["lua_ls"] = function()
+                        lspconfig.lua_ls.setup({
+                            capabilities = capabilities,
+                            settings = {
+                                Lua = {
+                                    runtime = {
+                                        version = "LuaJIT",
+                                    },
+                                    workspace = {
+                                        checkThirdParty = false,
+                                        library = vim.api.nvim_get_runtime_file("", true),
+                                    },
+                                    diagnostics = {
+                                        globals = { "vim" },
+                                    },
+                                    telemetry = {
+                                        enable = false,
+                                    },
+                                },
+                            },
+                        })
+                    end,
+                },
 			})
 		end,
 	},
