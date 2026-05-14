@@ -35,3 +35,9 @@ vim.cmd("set relativenumber")
 vim.o.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>sf", ":w<enter>", { desc = "Save current buffer" })
+
+-- Folding (required by nvim-ufo)
+vim.o.foldcolumn = "1"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

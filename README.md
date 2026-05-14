@@ -39,7 +39,9 @@ nvim
         ├── telescope.lua     # Fuzzy finder + git-worktree extension
         ├── toggleterm.lua    # Floating terminal
         ├── treesitter.lua    # Syntax highlighting
-        └── comment.lua       # Comment toggling        └── conform.lua       # Auto-formatting```
+        ├── comment.lua       # Comment toggling
+        ├── conform.lua       # Auto-formatting
+        └── ufo.lua           # Code folding (nvim-ufo)```
 
 ## Plugins
 
@@ -61,6 +63,7 @@ nvim
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs)                                                                   | Auto-close brackets and quotes               |
 | [git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)                                                       | Git worktree management                      |
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)                                       | Telescope-powered `vim.ui.select`            |
+| [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)                                                                         | Code folding with treesitter + virtual text  |
 | [panda-vim](https://github.com/markvincze/panda-vim)                                                                         | Color scheme                                 |
 
 ## LSP / Languages
@@ -89,6 +92,7 @@ The following language servers are auto-installed via Mason:
 | `gi`         | Go to implementation                       |
 | `<leader>rn` | Rename symbol                              |
 | `<leader>ca` | Code action                                |
+| `<leader>oi` | Organize imports                           |
 
 ### File Search (Telescope)
 
@@ -110,6 +114,16 @@ The following language servers are auto-installed via Mason:
 | `<leader>f`  | Format buffer (async, on-demand) |
 
 > Files also auto-format on save for supported filetypes.
+
+### Folding
+
+| Key  | Action               |
+| ---- | -------------------- |
+| `zR` | Open all folds       |
+| `zM` | Close all folds      |
+| `za` | Toggle fold at cursor |
+
+> Folding is treesitter-aware. Collapsed blocks show `[+N lines]` virtual text.
 
 ### Splits
 

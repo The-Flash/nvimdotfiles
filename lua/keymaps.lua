@@ -3,6 +3,12 @@ vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
+vim.keymap.set("n", "<leader>oi", function()
+    vim.lsp.buf.code_action({
+        context = { only = { "source.organizeImports" }, diagnostics = {} },
+        apply = true,
+    })
+end, { desc = "Organize imports" })
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
 -- Splits
