@@ -2,7 +2,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "pyright", "ruff" },
+			ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "pyright", "ruff" },
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -11,6 +11,12 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            vim.lsp.enable("lua_ls")
+            vim.lsp.enable("rust_analyzer")
+            vim.lsp.enable("ts_ls")
+            vim.lsp.enable("ruff")
+            vim.lsp.enable("pyright")
+            vim.lsp.enable("eslint")
             require("mason-lspconfig").setup({
 				default_handler = function(server_name)
 					lspconfig[server_name].setup({
@@ -43,6 +49,24 @@ return {
                                     },
                                 },
                             },
+                        })
+                    end,
+                    ["eslint"] = function()
+                        lspconfig.eslint.setup({
+                            capabilities = capabilities,
+                            settings = {
+                                eslint = {
+                                    workingDirectory = { mode = "auto" },
+                                },
+                            },
+                            on_attach = function(_, bufnr)
+                                vim.api.nvim_create_autocmd("BufWritePre", {
+                                    buffer = bufnr,
+                                    callback = function()
+                                        vim.cmd("EslintFixAll")
+                                    end,
+                                })
+                            end,
                         })
                     end,
                 },
