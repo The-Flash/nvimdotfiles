@@ -1,9 +1,6 @@
 return {
 	{
 		"mason-org/mason-lspconfig.nvim",
-		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "pyright", "ruff" },
-		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
 			"neovim/nvim-lspconfig",
@@ -12,6 +9,7 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
             require("mason-lspconfig").setup({
+				ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "pyright", "ruff" },
 				default_handler = function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
