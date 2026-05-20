@@ -33,6 +33,10 @@ return {
     "ThePrimeagen/git-worktree.nvim"
   },
   {
-    "markvincze/panda-vim"
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    opts = {
+      contrast = "hard",
+    },
   }
 }

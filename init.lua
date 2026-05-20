@@ -30,5 +30,5 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
--- panda theme
-vim.cmd[[colorscheme panda]]
+-- gruvbox theme
+vim.cmd[[colorscheme gruvbox]]

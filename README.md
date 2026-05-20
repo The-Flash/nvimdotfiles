@@ -64,7 +64,7 @@ nvim
 | [git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)                                                       | Git worktree management                      |
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)                                       | Telescope-powered `vim.ui.select`            |
 | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)                                                                         | Code folding with treesitter + virtual text  |
-| [panda-vim](https://github.com/markvincze/panda-vim)                                                                         | Color scheme                                 |
+| [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)                                                                  | Color scheme                                 |
 
 ## LSP / Languages
 
