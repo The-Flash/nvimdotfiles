@@ -2,7 +2,7 @@ return {
 	{
 		"mason-org/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "ruff", "pyright" },
+			ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "pyright", "ruff" },
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -18,6 +18,11 @@ return {
 					})
 				end,
                 handlers = {
+                    ["pyright"] = function()
+                        lspconfig.pyright.setup({
+                            capabilities = capabilities,
+                       })
+                    end,
                     ["lua_ls"] = function()
                         lspconfig.lua_ls.setup({
                             capabilities = capabilities,
