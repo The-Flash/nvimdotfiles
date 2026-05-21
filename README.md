@@ -74,6 +74,8 @@ The following language servers are auto-installed via Mason:
 | --------------- | --------------------------- |
 | `lua_ls`        | Lua                         |
 | `ts_ls`         | TypeScript / JavaScript     |
+| `angularls`     | Angular (templates + TS)    |
+| `eslint`        | JavaScript / TypeScript     |
 | `rust_analyzer` | Rust                        |
 | `ruff`          | Python (linting/formatting) |
 | `pyright`       | Python (type checking)      |

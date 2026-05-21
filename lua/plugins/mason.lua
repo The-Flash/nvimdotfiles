@@ -9,7 +9,7 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
             require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "pyright", "ruff" },
+				ensure_installed = { "lua_ls", "rust_analyzer", "ts_ls", "eslint", "angularls", "pyright" },
 				default_handler = function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = capabilities,
@@ -41,6 +41,38 @@ return {
                                     },
                                 },
                             },
+                        })
+                    end,
+                    ["angularls"] = function()
+                        local mason_registry = require("mason-registry")
+                        local angularls_path = mason_registry.get_package("angular-language-server"):get_install_path()
+                        local cmd = {
+                            "ngserver",
+                            "--stdio",
+                            "--tsProbeLocations",
+                            table.concat({ angularls_path, vim.fn.getcwd() }, ","),
+                            "--ngProbeLocations",
+                            table.concat({
+                                angularls_path .. "/node_modules/@angular/language-server",
+                                angularls_path,
+                            }, ","),
+                        }
+                        lspconfig.angularls.setup({
+                            capabilities = capabilities,
+                            cmd = cmd,
+                            on_new_config = function(new_config, new_root_dir)
+                                new_config.cmd = {
+                                    "ngserver",
+                                    "--stdio",
+                                    "--tsProbeLocations",
+                                    table.concat({ angularls_path, new_root_dir }, ","),
+                                    "--ngProbeLocations",
+                                    table.concat({
+                                        angularls_path .. "/node_modules/@angular/language-server",
+                                        angularls_path,
+                                    }, ","),
+                                }
+                            end,
                         })
                     end,
                     ["eslint"] = function()
