@@ -41,6 +41,7 @@ nvim
         ├── treesitter.lua    # Syntax highlighting
         ├── comment.lua       # Comment toggling
         ├── conform.lua       # Auto-formatting
+        ├── gitsigns.lua      # Git signs and hunk operations
         └── ufo.lua           # Code folding (nvim-ufo)```
 
 ## Plugins
@@ -62,6 +63,7 @@ nvim
 | [Comment.nvim](https://github.com/numToStr/Comment.nvim)                                                                     | Comment toggling                             |
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs)                                                                   | Auto-close brackets and quotes               |
 | [git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)                                                       | Git worktree management                      |
+| [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                                                                  | Git hunk signs, staging, blame, and diff     |
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)                                       | Telescope-powered `vim.ui.select`            |
 | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)                                                                         | Code folding with treesitter + virtual text  |
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)                                                                  | Color scheme                                 |
@@ -158,6 +160,23 @@ The following language servers are auto-installed via Mason:
 | ------------- | ------------------------- |
 | `<leader>gws` | List and switch worktrees |
 | `<leader>gwc` | Create a new worktree     |
+
+### Git Signs (gitsigns.nvim)
+
+| Key           | Action                           |
+| ------------- | -------------------------------- |
+| `]h`          | Jump to next hunk                |
+| `[h`          | Jump to previous hunk            |
+| `<leader>hs`  | Stage hunk (normal / visual)     |
+| `<leader>hr`  | Reset hunk (normal / visual)     |
+| `<leader>hS`  | Stage entire buffer              |
+| `<leader>hR`  | Reset entire buffer              |
+| `<leader>hu`  | Undo last staged hunk            |
+| `<leader>hp`  | Preview hunk inline              |
+| `<leader>gb`  | Blame current line (full)        |
+| `<leader>gB`  | Toggle inline line blame         |
+| `<leader>hd`  | Diff this file against index     |
+| `<leader>hD`  | Diff this file against last commit |
 
 ## Neovim 0.12 Compatibility Notes
 
