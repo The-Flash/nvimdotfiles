@@ -26,7 +26,7 @@ nvim
 ├── init.lua                  # Entry point, loads lazy.nvim and all modules
 ├── lazy-lock.json            # Plugin version lockfile
 └── lua/
-    ├── vim-options.lua       # Editor options, tabs, clipboard, Neovim 0.12 shims
+    ├── vim-options.lua       # Editor options, external file watchers, Neovim 0.12 shims
     ├── keymaps.lua           # All keymaps (non-plugin)
     ├── plugins.lua           # Plugin list loaded by lazy.nvim
     └── plugins/              # Per-plugin config files
@@ -197,4 +197,6 @@ Neovim 0.12 removed several APIs that some plugins depend on. The following shim
 
 - **`nvim-treesitter.parsers`** — replaced by `vim.treesitter.get_parser` and `vim.treesitter.language.get_lang`. A fake module is registered via `package.preload` so Telescope's previewer doesn't crash.
 - **`nvim-treesitter.configs`** — replaced by `require("nvim-treesitter").setup()`. A fake module is registered so Telescope's `is_enabled` and `get_module` calls are safe.
+
+`lua/vim-options.lua` also installs per-buffer filesystem watchers for normal file buffers. External edits are reloaded immediately when the buffer is unmodified, without waiting for Neovim to regain focus.
 ````
