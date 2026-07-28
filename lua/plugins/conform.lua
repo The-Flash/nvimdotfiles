@@ -23,6 +23,8 @@ return {
                 css = { "prettier" },
                 html = { "prettier" },
                 rust = { "rustfmt" },
+                cpp = { "clang_format" },
+                c = { "clang_format" },
             },
             format_on_save = {
                 timeout_ms = 500,
