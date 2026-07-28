@@ -32,6 +32,7 @@ nvim
     └── plugins/              # Per-plugin config files
         ├── completions.lua   # nvim-cmp + LuaSnip
         ├── copilot.lua       # GitHub Copilot
+        ├── diffview.lua      # Git diff and history review UI
         ├── lsp.lua           # LSP config
         ├── lualine.lua       # Status line
         ├── mason.lua         # Mason + mason-lspconfig + server setup
@@ -64,6 +65,7 @@ nvim
 | [nvim-autopairs](https://github.com/windwp/nvim-autopairs)                                                                   | Auto-close brackets and quotes               |
 | [git-worktree.nvim](https://github.com/ThePrimeagen/git-worktree.nvim)                                                       | Git worktree management                      |
 | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)                                                                  | Git hunk signs, staging, blame, and diff     |
+| [diffview.nvim](https://github.com/sindrets/diffview.nvim)                                                                   | Git diff and history review interface        |
 | [telescope-ui-select.nvim](https://github.com/nvim-telescope/telescope-ui-select.nvim)                                       | Telescope-powered `vim.ui.select`            |
 | [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo)                                                                         | Code folding with treesitter + virtual text  |
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim)                                                                  | Color scheme                                 |
@@ -160,6 +162,17 @@ The following language servers are auto-installed via Mason:
 | ------------- | ------------------------- |
 | `<leader>gws` | List and switch worktrees |
 | `<leader>gwc` | Create a new worktree     |
+
+### Diffview
+
+| Key           | Action                          |
+| ------------- | ------------------------------- |
+| `<leader>gd`  | Open repo diff against index    |
+| `<leader>gc`  | Open staged diff                |
+| `<leader>gf`  | Open history for current file   |
+| `<leader>gh`  | Open repository history         |
+| `<leader>gF`  | Toggle Diffview file panel      |
+| `<leader>gq`  | Close current Diffview tab      |
 
 ### Git Signs (gitsigns.nvim)
 

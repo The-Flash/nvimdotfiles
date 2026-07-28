@@ -23,5 +23,13 @@ vim.keymap.set("n", "<C-k>", "<C-w>k") -- move to top split
 vim.keymap.set("n", "<C-l>", "<C-w>l") -- move to right split
 
 -- git worktrees
-vim.keymap.set("n", "<leader>gws", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>")
-vim.keymap.set("n", "<leader>gwc", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>")
+vim.keymap.set("n", "<leader>gws", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", { desc = "List git worktrees" })
+vim.keymap.set("n", "<leader>gwc", "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", { desc = "Create git worktree" })
+
+-- diffview
+vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>", { desc = "Open diffview" })
+vim.keymap.set("n", "<leader>gc", "<cmd>DiffviewOpen --cached<CR>", { desc = "Open staged diffview" })
+vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>", { desc = "Diffview file history" })
+vim.keymap.set("n", "<leader>gh", "<cmd>DiffviewFileHistory<CR>", { desc = "Diffview repo history" })
+vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewToggleFiles<CR>", { desc = "Toggle diffview files" })
+vim.keymap.set("n", "<leader>gq", "<cmd>DiffviewClose<CR>", { desc = "Close diffview" })
