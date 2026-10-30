@@ -22,6 +22,7 @@ return {
         telescope.setup(opts)
         local gitworktree = require("git-worktree")
         gitworktree.setup()
+        require("worktree").setup(gitworktree)
         telescope.load_extension("ui-select")
         telescope.load_extension("git_worktree")
 

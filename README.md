@@ -163,6 +163,10 @@ The following language servers are auto-installed via Mason:
 | `<leader>gws` | List and switch worktrees |
 | `<leader>gwc` | Create a new worktree     |
 
+Creation runs `git worktree add` locally and switches after it succeeds. Fetching,
+pushing, and rebasing remain separate Git operations, so remote failures cannot
+interrupt worktree creation and switching.
+
 ### Diffview
 
 | Key           | Action                          |
