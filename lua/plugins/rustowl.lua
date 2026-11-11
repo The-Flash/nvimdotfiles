@@ -1,28 +1,28 @@
 -- RustOwl: visualize ownership & lifetimes in Rust.
--- Binary lives in ~/.rustowl (installed by the official installer, which also
--- sets up the pinned toolchain it needs; `cargo install rustowl` won't build on stable).
-local rustowl_dir = vim.fn.expand("~/.rustowl")
-if not vim.env.PATH:find(rustowl_dir, 1, true) then
-    vim.env.PATH = rustowl_dir .. ":" .. vim.env.PATH
-end
-
 return {
     "cordx56/rustowl",
     version = "*", -- latest stable
-    build = function()
-        local out = vim.fn.system({
-            "sh",
-            "-c",
-            "curl -fsSL https://raw.githubusercontent.com/cordx56/rustowl/refs/heads/main/scripts/installer | sh",
-        })
-        if vim.v.shell_error ~= 0 then
-            error("RustOwl install failed:\n" .. out)
-        end
-    end,
+    build = "cargo install rustowl",
     lazy = false, -- plugin lazy-loads itself on Rust files
     opts = {
         auto_enable = false, -- toggle on demand with <leader>ro
         idle_time = 500,
+        -- Not in the plugin's defaults, but rustowl v0.4.0 emits it
+        highlight_styles = {
+            lifetime = "underline",
+        },
+        -- Underline colors (must be #rrggbb)
+        colors = {
+            lifetime = "#00cc00", -- end of a variable's lifetime
+            definitely_live = "#00cc00", -- variable is alive (lifetime)
+            maybe_initialized = "#00cc00", -- may be alive / partially initialized
+            imm_borrow = "#0000cc", -- immutable borrow (&T)
+            mut_borrow = "#cc00cc", -- mutable borrow (&mut T)
+            move = "#cccc00", -- value moved
+            call = "#cccc00", -- moved into a function call
+            shared_mut = "#cc0000", -- shared and mutable at once (error)
+            outlive = "#cc0000", -- borrow outlives its owner (error)
+        },
         client = {
             on_attach = function(_, buffer)
                 vim.keymap.set("n", "<leader>ro", function()
